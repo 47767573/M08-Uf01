@@ -1,80 +1,255 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-        android:id="@+id/conversor">
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp" tools:context=".MainActivity"
+        android:id="@+id/calcHipoteca"
+        android:orientation="vertical">
 
-        <EditText
+
+        PREU INMOBLE      ##########################################################
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_input_layout_preuInm"
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:hint="Preu Inmoble"
+                android:textColorHint="#B4B4B4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/etPreuInm"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/etPreuInm"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="33dp" />
+            android:text="Preu inmoble (€)"
+            android:id="@+id/tvPreuInm"
+            android:textColor="#000000"
+            android:gravity="left"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/text_input_layout_preuInm"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"/>
 
-        <EditText
+        ESTALVIS      ##########################################################
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_input_layout_estalvis"
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tvEstalvis"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/text_input_layout_preuInm">
+
+            <EditText
+                android:hint="Estalvis"
+                android:textColorHint="#B4B4B4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/etEstalvis"
+                android:layout_below="@+id/text_input_layout_estalvis"
+                android:layout_alignRight="@+id/text_input_layout_estalvis"
+                android:layout_alignEnd="@+id/text_input_layout_estalvis"
+                android:layout_alignBottom="@+id/tvEstalvis" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/etEstalvis"
-            android:layout_below="@+id/etPreuInm"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:text="Estalvis (€)"
+            android:id="@+id/tvEstalvis"
+            android:textColor="#000000"
+            android:gravity="left"
+            android:layout_below="@+id/text_input_layout_preuInm"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="0dp"
+            android:paddingBottom="10dp" />
 
-        <EditText
+        EURIBOR      ##########################################################
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_input_layout_euribor"
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tvEuribor"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/text_input_layout_estalvis">
+
+            <EditText
+                android:hint="Euribor"
+                android:textColorHint="#B4B4B4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/etEuribor"
+                android:layout_below="@+id/text_input_layout_estalvis"
+                android:layout_alignRight="@+id/text_input_layout_estalvis"
+                android:layout_alignEnd="@+id/text_input_layout_estalvis"
+                android:layout_alignBottom="@+id/tvEuribor"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:text="Euribor"
+            android:id="@+id/tvEuribor"
+            android:textColor="#000000"
+            android:gravity="left"
+            android:layout_below="@+id/text_input_layout_estalvis"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="0dp"
+            android:paddingBottom="10dp" />
+
+        DIFERENCIAL      ##########################################################
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_input_layout_diferencial"
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tvDiferencial"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/text_input_layout_euribor">
+
+            <EditText
+                android:hint="Diferencial"
+                android:textColorHint="#B4B4B4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/etDiferencial"
+                android:layout_below="@+id/text_input_layout_euribor"
+                android:layout_alignRight="@+id/text_input_layout_euribor"
+                android:layout_alignEnd="@+id/text_input_layout_euribor"
+                android:layout_alignBottom="@+id/tvDiferencial" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Diferencial"
+            android:id="@+id/tvDiferencial"
+            android:textColor="#000000"
+            android:gravity="left"
+            android:layout_below="@+id/text_input_layout_euribor"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="0dp"
+            android:paddingBottom="10dp" />
+
+
+        PLAZOS      ##########################################################
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_input_layout_plazos"
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tvPlazos"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/text_input_layout_diferencial">
+
+            <!--<EditText
+                android:hint="Plazos"
+                android:textColorHint="#B4B4B4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/etPlazos"
+                android:layout_below="@+id/text_input_layout_diferencial"
+                android:layout_alignRight="@+id/text_input_layout_diferencial"
+                android:layout_alignEnd="@+id/text_input_layout_diferencial"
+                android:layout_alignBottom="@+id/tvPlazos" />-->
+
+            <SeekBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/sbPlazos"
+                android:layout_below="@+id/etDiferencial"
+                android:layout_alignRight="@+id/text_input_layout_diferencial"
+                android:layout_alignEnd="@+id/text_input_layout_diferencial"
+                android:max="80"
+                android:progress="1"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plazos"
+            android:id="@+id/tvPlazos"
+            android:textColor="#000000"
+            android:gravity="left"
+            android:layout_below="@+id/text_input_layout_diferencial"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="0dp"
+            android:paddingBottom="10dp" />
+
+        <!--<SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:ems="10"
-            android:id="@+id/etPlazo"
+            android:id="@+id/seekBar"
             android:layout_below="@+id/etEstalvis"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/etEuribor"
+            android:layout_alignLeft="@+id/etEstalvis"
+            android:layout_alignStart="@+id/etEstalvis"
+            android:max="80"
+            android:progress="1"/>-->
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/etEuribor"
-            android:layout_below="@+id/etPlazo"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/etDiferencial"
-            android:layout_below="@+id/etEuribor"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
 
+        
+        BOTONES      ##########################################################
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CALCULAR"
             android:id="@+id/btnCal"
-            android:layout_below="@+id/etDiferencial"
+            android:layout_below="@+id/text_input_layout_plazos"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="57dp"
             android:onClick="onCalcular" />
 
+
+        RESULTADOS      ##########################################################
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Mes: 0"
             android:id="@+id/tvMes"
+            android:gravity="left"
             android:layout_below="@+id/btnCal"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -87,67 +262,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Total: 0"
             android:id="@+id/tvTotal"
+            android:gravity="right"
             android:layout_alignTop="@+id/tvMes"
-            android:layout_alignRight="@+id/etDiferencial"
-            android:layout_alignEnd="@+id/etDiferencial"
+            android:layout_alignRight="@+id/text_input_layout_diferencial"
+            android:layout_alignEnd="@+id/text_input_layout_diferencial"
             android:textSize="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Preu inmoble (€)"
-            android:id="@+id/tvPreuInm"
-            android:textColor="#000000"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignBottom="@+id/etPreuInm"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Estalvis"
-            android:id="@+id/tvEstalvis"
-            android:textColor="#000000"
-            android:layout_above="@+id/etPlazo"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignBottom="@+id/etEstalvis"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Plaç (anys)"
-            android:id="@+id/tvPlazo"
-            android:textColor="#000000"
-            android:layout_above="@+id/etEuribor"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Euribor"
-            android:id="@+id/tvEuribor"
-            android:textColor="#000000"
-            android:layout_above="@+id/etDiferencial"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Diferencial"
-            android:id="@+id/tvDiferencial"
-            android:textColor="#000000"
-            android:layout_alignBottom="@+id/etDiferencial"
-            android:layout_alignRight="@+id/tvPlazo"
-            android:layout_alignEnd="@+id/tvPlazo"
-            android:layout_marginBottom="10dp" />
 
     </RelativeLayout>
