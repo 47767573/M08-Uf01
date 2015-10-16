@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         estalvis.addTextChangedListener(onWatch);
 
         plazo = (SeekBar)findViewById(R.id.sbPlazos);
-        plazo.setOnSeekBarChangeListener((SeekBar.OnSeekBarChangeListener) onWatch);
+        //plazo.setOnSeekBarChangeListener((SeekBar.OnSeekBarChangeListener) onWatch);
 
         euribor = (EditText)findViewById(R.id.etEuribor);
         euribor.addTextChangedListener(onWatch);
@@ -66,7 +66,9 @@ public class MainActivity extends AppCompatActivity {
 
     public final TextWatcher onWatch = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {    }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
