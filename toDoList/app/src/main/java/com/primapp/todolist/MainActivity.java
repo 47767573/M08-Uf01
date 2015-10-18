@@ -2,6 +2,7 @@ package com.primapp.todolist;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         misTareasArray = new ArrayList<>() ;
 
-        adapterMisTareas = new ArrayAdapter<String>(
+        adapterMisTareas = new ArrayAdapter<>(
                 this, R.layout.act_tarea,R.id.textView,misTareasArray
         );
 
@@ -57,15 +58,16 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Log.d("MainActivity", "Añadida nueva tarea");
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     public void onClick (View view){
-        String txt = agregar.getText().toString();
-        adapterMisTareas.add(txt);
+        String newTxt = agregar.getText().toString();
+        adapterMisTareas.add(newTxt);
+        agregar.setText("");
     }
 
 }
